@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --cyan-hover: hsla(178, 100%, 50%, 0.582);
+  --very-dark-blue-main-bg: hsl(217, 54%, 11%);
+  --very-dark-blue-card-bg: hsl(216, 50%, 16%);
+  --very-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+  background: var(--very-dark-blue-main-bg);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: var(--very-dark-blue-card-bg);
+  width: 350px;
+  height: 600px;
+  padding: 2.3em;
+  border-radius: 1.8em;
+}
+
+.card__img-container {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.card__img-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s;
+  border-radius: 1em;
+}
+
+.card__img-container:hover::after {
+  background: var(--cyan-hover);
+  border-radius: 1em;
+}
+
+.card__img {
+  width: 100%;
+  border-radius: 1em;
+  display: block;
+}
+
+.card__img-overlay {
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transform: translate(-50%, -50%);
+}
+
+.card__img-container:hover .card__img-overlay {
+  opacity: 1;
+  z-index: 100000;
+}
+
+.card__header {
+  margin-top: 2.1rem;
+}
+
+.card__heading {
+  color: var(--white);
+  font-size: 2.22rem;
+  transition: all 0.3s ease;
+}
+
+.card__heading:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+
+.card__text {
+  margin-top: 1.95rem;
+  color: var(--soft-blue);
+  font-size: 1.8rem;
+  padding-left: 0.1rem;
+  line-height: 1.45;
+}
+
+.card__details {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.1em;
+  margin-top: 2rem;
+}
+
+.card__details-left,
+.card__details-right {
+  display: flex;
+  gap: 0.68rem;
+  align-items: center;
+}
+
+.card__details span {
+  font-size: 1.71rem;
+}
+
+.card__details-eth-icon {
+  width: 1rem;
+  height: 1.8rem;
+}
+
+.card__details-left span {
+  color: var(--cyan);
+}
+
+.card__details-clock-icon {
+  width: 1.5rem;
+  height: 1.8rem;
+}
+
+.card__details-right span {
+  color: var(--soft-blue);
+}
+
+.card__footer {
+  margin-top: 4.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__footer-img-container {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
+.card__footer-img {
+  width: 100%;
+  height: 100%;
+}
+
+.card__footer-name {
+  font-size: 1.6rem;
+  color: var(--soft-blue);
+}
+
+.card__footer-name span {
+  font-size: 1.6rem;
+  color: var(--white);
+  padding-left: 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.card__footer-name span:hover {
+  cursor: pointer;
+  color: var(--cyan);
+}
+
+.attribution {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--cyan);
+  width: 100%;
+}
+
+.attribution a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 375px) {
+  body {
+    height: 98vh;
+  }
+
+  .main {
+    display: block;
+    margin-top: 2.5rem;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .card {
+    width: 98%;
+    height: 600px;
+    padding: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .card {
+    height: 575px;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .card {
+    height: 565px;
+  }
+
+  .card__heading {
+    text-align: center;
+  }
+
+  .card__text {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .card__footer {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 315px) {
+  .card {
+    height: 555px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .card {
+    height: 545px;
+  }
+}
